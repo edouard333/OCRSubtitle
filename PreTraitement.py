@@ -12,7 +12,7 @@ import pytesseract
 
 
 def PixelModifier(rgb):
-    if( (rgb[0]+rgb[1]+rgb[2]) > 230 ):
+    if( (rgb[0]+rgb[1]+rgb[2]) > 180*3 ):
         return rgb[0], rgb[1], rgb[2]
     else:
         return 0, 0, 0
@@ -38,4 +38,4 @@ def structure(i):
 for i in range(0, 2229):
     ImgIn= Image.open('_OUTPUT/LUKAS_ST' + structure(i) + '.png')
     ImgOut = Couche(ImgIn)
-    ImgOut.save('_OUTPUT/LUKAS_ST' + structure(i) + '_T.png', format="png")
+    ImgOut.save('_OUTPUT/T_LUKAS_ST' + structure(i) + '.png', format="png")

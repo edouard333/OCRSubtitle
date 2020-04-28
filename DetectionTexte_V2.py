@@ -224,4 +224,13 @@ for i in range(0, 127996):
             # Empêche qu'on écrive plusieurs fois le même sous-titre.
             texte_precedent= ''
 
+    elif(texte_precedent != ''):
+        corSt= correctionSousTitre(texte_precedent)
+        print timecode(i) + ' [end] ' + corSt
+        f.write(srt.sous_titre(j, timecode(tc_in), timecode(i), corSt))
+        tc_in= i
+        #j= j+1
+        # Empêche qu'on écrive plusieurs fois le même sous-titre.
+        texte_precedent= ''
+
 f.close()
